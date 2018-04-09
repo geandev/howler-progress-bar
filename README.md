@@ -41,7 +41,7 @@ Get current seek and audioDuration for each one second
 #### change(position:number):void
 #### getCurrentDuration():number
 #### getMaxDuration():number
-Get current seek and audioDuration for each one second
+Move progress bar from parent component
 
 ```typescript
 import { Component, ViewChild } from '@angular/core';
