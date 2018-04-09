@@ -2,7 +2,7 @@
 Howler-progress-bar for Angular 5
 
 ### Register the component on app.module.ts
-```
+```typescript
 import { ProgressBarModule } from './components/howler-progress-bar/progress-bar.module'
 
 @NgModule({
