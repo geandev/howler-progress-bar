@@ -31,6 +31,7 @@ export class ProgressBarComponent implements OnInit {
 
     change(value: number) {
         this.player.seek(value)
+        this.subscribe()
     }
 
     getCurrentDuration(): number {
@@ -41,13 +42,22 @@ export class ProgressBarComponent implements OnInit {
         return Math.round(<number>this.player.duration())
     }
 
+    private onPlay() {
+        if (this.player.playing())
+            this.subscribe()
+    }
+
+    private onPause() {
+        this.unsubscribe()
+    }
+
     private setupUpdateObservable() {
         this.value = 0
         this.maxValue = 0
         this.updateObservable = Observable.interval(1000)
     }
 
-    private onPlay() {
+    private subscribe() {
         this.updateSubscriber = this.updateObservable.subscribe(() => {
             this.value = this.getCurrentDuration()
             this.maxValue = this.getMaxDuration()
@@ -55,8 +65,7 @@ export class ProgressBarComponent implements OnInit {
         })
     }
 
-    private onPause() {
+    private unsubscribe() {
         this.updateSubscriber.unsubscribe()
     }
-
 }

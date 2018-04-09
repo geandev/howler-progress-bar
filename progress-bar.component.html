@@ -1,1 +1,1 @@
-<input type="range" min="0" [max]="maxValue" [(ngModel)]="value" (change)="change(value)">
+<input type="range" min="0" [max]="maxValue" [(ngModel)]="value" (change)="change(value)" (input)="unsubscribe()">
